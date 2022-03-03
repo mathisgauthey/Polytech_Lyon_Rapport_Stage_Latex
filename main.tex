@@ -1,0 +1,797 @@
+% ======================================== Début Préambule Latex ========================================   
+%                                         TEMPLATE GAUTHEY MATHIS
+
+% ========== Classe du document ==========
+\documentclass[a4paper,11pt]{report}    % A4, police taille 11, report pour avoir les chapitres
+
+% ========== Langue française pour le document ==========
+\usepackage{latexsym}       % Police latex de base
+\usepackage[french]{babel}  % Dictionnaire français (indentation, caractères spéciaux, tirets...)
+\usepackage[utf8]{inputenc} % Encodage d'entrée pour les caractères accentués
+\usepackage[T1]{fontenc}    % Affichage correct des caractères accentués notamment
+
+% ========== Géométrie du document ==========
+% Gestion des différentes marges du document pour coller avec le séparateur d'en-tête
+\usepackage[left=2cm , right=2cm, bottom=2cm, top=2cm, headheight=2cm, headsep=0.5cm,heightrounded=true]{geometry}
+% \raggedbottom % This makes the last line of each page be at exactly the same place on the sheet of paper
+% \flushbottom  % All pages will not necessarily have exactly the same height, but ‘almost the same height’
+\setlength{\parskip}{1em}   % Définition de l'espace entre les paragraphes
+\setlength{\parindent}{4em} % Définition de la longueur du "tab" = indentation
+\usepackage{fancyhdr}       % Permet en-tête et pied de page
+\pagestyle{fancyplain}      % Pour avoir le même style sur les pages fancy et sur celles plains comme la toc
+\renewcommand\plainheadrulewidth{.4pt}  % Le trait noir sous les logos sur les pages plain
+\fancyhead[L]{\includegraphics[scale=0.1]{Logo_Univ_Lyon_1.png}}    % Logo gauche
+\fancyhead[R]{\includegraphics[scale=0.15]{Logo_Polytech_Lyon.png}} % Logo droit
+% Redéfinir le style "empty" utilisé par le documentclass "report" pour le titre, résumé et chapitres
+\fancypagestyle{empty}
+{    
+    \fancyhf{}
+    \fancyhead[L]{\includegraphics[scale=0.1]{Logo_Univ_Lyon_1.png}}    % Logo gauche
+    \fancyhead[R]{\includegraphics[scale=0.15]{Logo_Polytech_Lyon.png}} % Logo droit
+}
+
+% ========== Liens dans le document, méta-datas et références ==========
+\usepackage{xpatch}     % Permet de patcher certaines fonctionnalités de base comme la toc
+\usepackage{float}      % Placement des flottants
+\usepackage{hyperref}   % Liens dans le documents
+\usepackage{caption}    % Légendes dans les environnements "figure" et "float"
+\usepackage[list=true]{subcaption} % Légendes pour les "sous-figures" et "sous-float"
+                                   % et affichage des "sous-..." dans la liste des figures 
+\def\thechapter{\Alph{chapter}}    % Définition des chapitres avec une lettre
+\setcounter{tocdepth}{3}           % Profondeur de numérotation de la toc  (chap > sec > subsec > subsubsec)
+\setcounter{secnumdepth}{3}        % Profondeur de numérotation des titres (chap > sec > subsec > subsubsec)
+\usepackage{chngcntr}              % Permet de changer les numérotations d'objets
+\usepackage[titles]{tocloft}       % Gestion très précise des différentes listes
+
+\hypersetup % Attribution des méta-datas pdf pour reconnaissance automatique Zotero entre autres
+{
+pdftitle={Titre},
+pdfsubject={Sujet},
+pdfauthor={Auteur},
+pdfkeywords={keyword1} {keyword2} {keyword3}
+}
+
+% ========== Graphique, police, maths ==========
+\usepackage[table,xcdraw]{xcolor}       % Package permettant d'utiliser de la couleur
+\usepackage{color}                      % Rajouter de la couleur au texte
+\usepackage{bm}                         % Mettre en gras des maths avec la commande \bm
+\usepackage{ragged2e}                   % Meilleure gestion de l'alignement des textes entre autres
+\usepackage{tcolorbox}                  % Boite colorées pour texte, images ou équations
+\usepackage{textcomp}                   % Symboles et polices
+\usepackage{gensymb}                    % Symbole pour le degré entre autre
+\usepackage{amsmath,amsfonts,amssymb}   % Écrire des maths
+\usepackage{cancel}                     % Barrer des maths
+\usepackage{mathtools}                  % Gestion des matrices et de maths complexes
+\usepackage{morewrites}                 % Résoud un problème entre les listes équation et codes
+
+\usepackage{enumitem}       % Gestion des énumérations
+% Gestion des espaces avant et après les listes plus agréable à la vue
+\setlist[itemize]{noitemsep, topsep=5pt, before={\vspace*{-\baselineskip}}}
+
+\usepackage{siunitx}                                    % Pour des unités bien écrites
+\newcommand{\nomunit}[1]{%
+\renewcommand{\nomentryend}{\hspace*{\fill}#1}}         % Commande pour la nomenclature (unités à droite)
+\sisetup{inter-unit-product =\ensuremath{{}\cdot{}}}    % Séparation par un point des unités
+\DeclareSIUnit\bar{bar}                                 % Besoin de déclarer les bar car pas pris en charge
+\DeclareSIPower\quartic\tothefourth{4}
+
+% ========== Glossaire ==========
+\usepackage[acronym,toc]{glossaries}    % Gestion d'un glossaire et d'une liste d'acronymes,
+                                        % et ajout dans la toc de la position de ces derniers
+\input{glossary}                        % Récupère les informations du fichier glossary.tex
+\makeglossaries                         % Génère le glossaire avec les informations récupérées
+
+% ========== Nomenclature ==========
+\usepackage[intoc]{nomencl}         % Gestion d'une nomenclature avec position dans la toc
+\makenomenclature                   % Génère la nomenclature
+\usepackage{etoolbox}               % Permet de créer des groupes de nomenclature
+
+% Création de groupes de nomenclature : ATTENTION -> Uniquement des caractères uniques en identifiant
+\renewcommand\nomgroup[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{A}{Groupe 1}{%
+  \ifstrequal{#1}{B}{Groupe 2}{%
+  \ifstrequal{#1}{C}{Groupe 3}{%
+  }}}%
+]} % Attention aux accolades lors de la création de groupes
+
+\AtBeginDocument{   % Nomenclature à générer
+\nomenclature[A]{$c_{air}$}{Célérité du son dans l'air à \SI{15}{\celsius} \nomunit{\SI{340.29}{\meter\per\second}}}
+\nomenclature[B]{$T_N$}{Période propre de l'élément considéré}
+\nomenclature[B]{\(E\)}{{Module d'Young}}
+\nomenclature[C]{$\dot{\epsilon}$}{Vitesse de déformation \nomunit{\si{\per\second}}}
+}
+
+% ========== Gestion des figures ==========
+\usepackage{graphicx}               % Plus d'arguments pour la fonction \includegraphics
+\graphicspath{{Images/}}            % Path des images
+
+\counterwithin{figure}{section}     % Numérotation des figures à partir des sections
+\setcounter{lofdepth}{2}            % Afficher jusqu'aux sous-figures dans la liste des figures
+\cftsetindents{figure}{0em}{3.5em}  % Réglage de l'espace entre le numéro et le nom de la figure dans la liste
+\setlength\cftbeforefigskip{5pt}    % Réglage de l'espacement entre les figures dans la liste
+\AtBeginDocument{\renewcommand{\listfigurename}{Liste des figures}} % Renommer la liste des figures
+% Ajout de la position de la liste des figures dans la toc
+\xpretocmd{\listoffigures}{\addcontentsline{toc}{chapter}{\listfigurename}}{}{}
+
+% ========== Gestion des tableaux ==========
+\usepackage{array,multirow,makecell}                        % Packages utiles pour les tableaux
+\setcellgapes{1pt}                                          % Paramètres sympa d'après Xm1Math
+\makegapedcells                                             % Paramètres sympa d'après Xm1Math
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}   % Paramètres sympa d'après Xm1Math
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}  % Paramètres sympa d'après Xm1Math
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}    % Paramètres sympa d'après Xm1Math
+
+\counterwithin{table}{section}      % Numérotation des tableaux à partir des sections
+\setcounter{lotdepth}{2}            % Afficher jusqu'aux sous-tableaux dans la liste des tableaux
+\cftsetindents{table}{0em}{3.5em}   % Réglage de l'espace entre le numéro et le nom du tableau dans la liste
+\setlength\cftbeforetabskip{5pt}    % Réglage de l'espacement entre les figures dans la liste
+% Ajout de la position de la liste des tableaux dans la toc
+\xpretocmd{\listoftables}{\addcontentsline{toc}{chapter}{\listtablename}}{}{}
+
+% ========== Gestion des équations ==========
+\newcommand{\listequationsname}{Liste des équations}    % Renommer la liste des équations
+\newlistof{myequations}{equ}{\listequationsname}
+\newcommand{\myequations}[1]{%
+   \addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}
+}
+\counterwithin{equation}{section}           % Numérotation des équations à partir des sections
+\cftsetindents{myequations}{0em}{3.5em}     % Réglage de l'espace entre le numéro et le nom de l'équation dans la liste
+\setlength\cftbeforemyequationsskip{5pt}    % Réglage de l'espacement entre les équations dans la liste
+
+% Création de la commande \noteworhty pour les équations importantes qui méritent d'être listées
+\newcommand{\noteworthy}[2]{
+\begin{align} \label{#2} \ensuremath{\boxed{#1}} \end{align} 
+\myequations{#2} 
+\begingroup
+\centering \small \textit{#2} 
+
+\endgroup}
+
+\makeatletter   % Espacement des équations plus important entre les chapitres
+\xpretocmd{\@chapter}{\addtocontents{equ}{\protect\addvspace{10\p@}}}{}{}{}%
+\makeatother
+% Ajout de la position de la liste des équation dans la toc
+\xpretocmd{\listofmyequations}{\addcontentsline{toc}{chapter}{\listequationsname}}{}{}
+
+% ========== Gestion des codes ==========
+\usepackage[newfloat]{minted}       % Package permettant d'intégrer du code
+\usemintedstyle{monokai}            % Sélection du style de syntaxe
+\definecolor{bg}{HTML}{282828}      % Définition de la couleur d'arrière plan monokai
+\counterwithin{listing}{section}    % Numérotation des codes à partir des sections
+
+% Configuration de newfloat pour que tout roule
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{%
+  name={Listing},
+  fileext=lol}
+\SetupFloatingEnvironment{listing}{listname=Liste des codes}    % Renommer la liste des codes
+
+% Gérer les codes de plus d'une page de document
+\newenvironment{longlisting}{\captionsetup{type=listing}}{} % longlisting pour les codes qui dépassent d'une page
+\vbadness=\maxdimen    % Casse les couilles ya pas de fix qui garde une couleur de background et une bonne liste
+                       % du-coup je décide de supprimer les warnings.
+% Source : https://tex.stackexchange.com/questions/50830/do-i-have-to-care-about-bad-boxes/50850#50850
+%        & https://tex.stackexchange.com/questions/138/what-are-underfull-hboxes-and-vboxes-and-how-can-i-get-rid-of-them
+
+\setminted          % Paramètre du code standard
+{
+bgcolor=bg,
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos=true,
+autogobble
+}
+
+\setmintedinline    % Paramètres du code inline
+{
+bgcolor=bg,
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos=true,
+autogobble
+}
+
+% ========== Index ==========
+\usepackage{imakeidx}   % Package pour créer l'index
+\makeindex              % Génération de l'index
+% Ajout de la position de l'index dans la toc
+\xpretocmd{\printindex}{\addcontentsline{toc}{chapter}{\indexname}}{}{}
+
+% ========== Bibliographie ==========
+% Importer un fichier biblatex, sans dépassement des marges, trié par ordre d'apparition
+\usepackage[block=ragged,sorting=none]{biblatex}
+\usepackage{csquotes}           % Gestion des caractères " " lors des citations
+\addbibresource{biblio.bib}     % Importer le fichier de bibliographie
+\nocite{*}                      % Importer les éléments non cités quand même dans la bibliographie
+
+% ========== Gestion des annexes ==========
+\usepackage[toc,page,title,titletoc,header]{appendix}   % Packages indexes importants
+\usepackage{pdfpages}                                   % Intégration de pdf dans le document
+\renewcommand{\appendixtocname}{Table des annexes}      % Nom de la table des annexes dans la toc
+\renewcommand{\appendixpagename}{Annexes}               % Nom du titre de la page des annexes
+
+% ========== Utilitaires ==========
+\usepackage[all,defaultlines=3]{nowidow}    % Macro pour la gestion des lignes seules en bout de page
+\usepackage{blindtext}                      % Génération de texte aléatoire pour les exemples
+% A utiliser avec https://ctan.mirror.garr.it/mirrors/ctan/macros/latex/contrib/mwe/mwe.pdf pour les images
+
+% ======================================== Fin Préambule Latex ========================================
+
+% ======================================== Début TUTOs ========================================
+
+% ========== Intégrer une image ==========
+%\begin{figure}[htbp]
+%\centering
+%\includegraphics[width=\textwidth]{example-image-a.png}
+%\caption{Image A}
+%\label{fig:example-image-a} % Bon réflexe de garder le même nom de fichier et de label
+%\end{figure}
+
+% ========== Insérer de multiples images ==========
+% \begin{figure}[H]
+%     \begin{subfigure}[t]{0.475\textwidth}
+%         \includegraphics[width=1\textwidth]{example-image-b}
+%         \caption{Image B}
+%         \label{subfig:example-image-b}
+%     \end{subfigure}%
+%     ATTENTION, le % est très important ici pour éviter les problèmes de vide
+%     \hfill    % Remplissage entre les images
+%     \begin{subfigure}[t]{0.475\textwidth}
+%         \includegraphics[width=1\textwidth]{example_image_c}
+%         \caption{Image C}
+%         \label{subfig:example-image-c}
+%     \end{subfigure}
+%     \caption{Exemple d'utilisation des sous-figures}
+%     \label{fig:test_subfigure}
+% \end{figure}
+
+% ========== Placement des images ==========
+% h	Place the float here, i.e., approximately at the same point it occurs in the source text (however, not exactly at the spot)
+% t	Position at the top of the page.
+% b	Position at the bottom of the page.
+% p	Put on a special page for floats only.
+% !	Override internal parameters LATEX uses for determining "good" float positions.
+% H	Places the float at precisely the location in the LATEX code. Requires the float package (\usepackage{float}). This is somewhat equivalent to h!, though some errors may arise if you have too many consecutive floats with [H].
+
+% ========== Intégrer un tableau ==========
+% https://www.tablesgenerator.com/
+
+% ========== Intégrer une équation ==========
+% https://editor.codecogs.com/
+% \noteworthy{equation}{légende} pour l'avoir dans la liste des équations
+
+% ========== Intégrer du code ==========
+% \begin{listing}[htbp]
+% \begin{minted}{c}
+% #include <stdio.h>
+% int main() {
+%   printf("Hello, World!"); /*printf() outputs the quoted string*/
+%   return 0;
+% }
+% \end{minted}
+% \caption{Hello World in C}
+% \label{listing:2}
+% \end{listing}
+
+% \mint{python}|print("hello")| % Équivalent de \minted mais plus court
+
+% \mintinline{python}|print("hello")|   % Quand t'as qu'une ligne de code
+
+% Remarque : Le séparateur aurait pu être { } ou d'autres ponctuations
+
+% ========== Début de doc classique ==========
+% \title{Titre}
+% \author{Auteur}
+% \date{\today}
+% \maketitle
+% \begin{abstract}
+%     Blablabla
+% \end{abstract}
+
+% ======================================== Fin TUTOs ========================================
+
+\begin{document}
+
+% ======================================== Début Page de Garde ========================================
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{Titre}
+            
+        \vspace{0.5cm}
+        \LARGE
+        Sous titre\\
+        Année xxxx-yyyy\\
+        Date
+            
+        \vspace{1.5cm}
+            
+        \textbf{Auteur}
+        
+        \vfill
+            
+        \includegraphics[scale=0.49]{Banniere_Meca.png}
+        
+        \vfill
+            
+        \Large
+        \noindent\fbox{\begin{minipage}[c][0.3\textwidth]{\textwidth-7pt}%
+        \begin{center}
+        POLYTECH LYON - UNIVERSITE CLAUDE BERNARD LYON 1
+        \par\end{center}
+        \begin{center}
+        Domaine Scientifique de La Doua -- 15, Boulevard Latarjet
+        \par\end{center}
+        \begin{center}
+        69622 VILLEURBANNE CEDEX
+        \par\end{center}
+        \begin{center}
+        Tél. (33) 04.72.43.12.24 - Fax. (33) 04.72.43.12.25
+        \par\end{center}
+        \begin{center}
+        http://polytech.univ-lyon1.fr/
+        \par\end{center}%
+        \end{minipage}}
+    \end{center}
+\end{titlepage}
+
+% ======================================== Fin Page de Garde ========================================
+
+% ======================================== Début Page Résumé ========================================
+
+\thispagestyle{plain}
+\begin{center}
+    \Large
+    \textbf{Titre}
+        
+    \vspace{0.4cm}
+    \large
+    Sous titre
+        
+    \vspace{0.4cm}
+    \textbf{Auteur}
+       
+    \vspace{0.9cm}
+    \textbf{Résumé}
+\end{center}
+
+\blindtext
+
+% ======================================== Fin Page Résumé ========================================
+
+% ======================================== Début TOC & Co ========================================
+
+\newpage
+\tableofcontents
+
+\glsaddall  % Comme le \nocite{*} pour la bibliographie, importe toutes les entrées au moins une fois
+\printglossaries
+
+\newpage
+\printnomenclature
+
+% ======================================== Fin TOC & Co ========================================
+
+% ======================================== Début Document ========================================
+
+\newpage
+\chapter{Chapitre}
+
+\section{Section}
+
+\blindtext
+
+\subsection{Subsection}
+
+\blindtext
+
+\subsubsection{Subsubsection}
+
+\blindtext
+
+\chapter{Tuto pratique}
+
+\section{Les acronymes et les glossaires}
+
+C'est fou, on peut imprimer les entrées de glossaire de cette manière pour que sa position soit identifiée dans le glossaire : \gls{mot_complexe}
+
+Et pour les acronymes c'est encore mieux, on a plein d'options:
+\begin{itemize}
+    \item \acrshort{lfala}
+        \item \acrlong{lfala}
+    \item \acrfull{lfala}
+\end{itemize}
+
+\section{Les figures et sous figures}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.25\textwidth]{example-image-a}
+    \caption{Image A}
+    \label{fig:example-image-a}
+\end{figure}
+
+On peut même les référencer : figure \ref{fig:example-image-a}
+
+\begin{figure}[H]
+    \begin{subfigure}[t]{0.475\textwidth}
+        \includegraphics[width=1\textwidth]{example-image-b}
+        \caption{Image B}
+        \label{subfig:example-image-b}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[t]{0.475\textwidth}
+        \includegraphics[width=1\textwidth]{example-image-c}
+        \caption{Image C}
+        \label{subfig:example-image-c}
+    \end{subfigure}
+    \caption{Example d'utilisation des sous-figures}
+    \label{fig:test_subfigure}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.25\textwidth]{example-image}
+    \caption{Image}
+    \label{fig:example-image}
+\end{figure}
+
+\section{Les tableaux}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{||c c c c||} 
+ \hline
+ Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+ \hline\hline
+ 1 & 6 & 87837 & 787 \\ 
+ 2 & 7 & 78 & 5415 \\
+ 3 & 545 & 778 & 7507 \\
+ 4 & 545 & 18744 & 7560 \\
+ 5 & 88 & 788 & 6344 \\ [1ex] 
+ \hline
+\end{tabular}
+\caption{Table to test captions and labels.}
+\label{table:1}
+\end{table}
+
+\begin{table}[H]
+    \begin{subtable}[h]{0.45\textwidth}
+        \centering
+        \begin{tabular}{l | l | l}
+        Day & Max Temp & Min Temp \\
+        \hline \hline
+        Mon & 20 & 13\\
+        Tue & 22 & 14\\
+        Wed & 23 & 12\\
+        Thurs & 25 & 13\\
+        Fri & 18 & 7\\
+        Sat & 15 & 13\\
+        Sun & 20 & 13
+       \end{tabular}
+       \caption{First Week}
+       \label{subtab:week1}
+    \end{subtable}%
+    \hfill
+    \begin{subtable}[h]{0.45\textwidth}
+        \centering
+        \begin{tabular}{l | l | l}
+        Day & Max Temp & Min Temp \\
+        \hline \hline
+        Mon & 17 & 11\\
+        Tue & 16 & 10\\
+        Wed & 14 & 8\\
+        Thurs & 12 & 5\\
+        Fri & 15 & 7\\
+        Sat & 16 & 12\\
+        Sun & 15 & 9
+        \end{tabular}
+        \caption{Second Week}
+        \label{subtab:week2}
+     \end{subtable}
+     \caption{Max and min temps recorded in the first two weeks of July}
+     \label{tab:temps}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|ll|r|}
+\hline
+\multicolumn{2}{|c|}{Item}                    &            \\ \hline
+\multicolumn{1}{|l|}{Animal}    & Description & Price (\$) \\ \hline
+\multicolumn{1}{|l|}{Gnat}      & per gram    & 13.65      \\ \hline
+\multicolumn{1}{|l|}{}          & each        & 0.01       \\ \hline
+\multicolumn{1}{|l|}{Gnu}       & stuffed     & 92.50      \\ \hline
+\multicolumn{1}{|l|}{Emu}       & stuffed     & 33.33      \\ \hline
+\multicolumn{1}{|l|}{Armadillo} & frozen      & 8.99       \\ \hline
+\end{tabular}
+\caption{Exemple supplémentaire}
+\label{tab:exemple_sup}
+\end{table}
+
+\section{Les équations}
+
+\begin{equation}
+    ax^2+bx+c=\Delta
+\end{equation}
+
+\begin{align*}  % Le & permet de choisir où on souhaite aligner l'équation
+    35x+6&=4\\
+    &=z+2
+\end{align*}
+
+\noteworthy{P(\bigcup_{n=1}^n A_n) \leq \sum_{n=1}^n P(A_n)}{Boole's inequality}
+
+\noteworthy{E=mc^2}{E=M6 tmtc}
+
+On peut meme les citer : \ref{Boole's inequality}
+
+Oh et évidemment on peut mettre des maths rapidement dans le texte $u_2 = 273.29 \ m.s^{-1}$. Par exemple ici un petit tips sur comment espacer rapidement les unités ! Bon en l'occurrence on aurait aussi pu utiliser \si{\meter\per\second} mais bon, qui peut le plus peut le moins.
+
+\section{Les codes}
+
+\begin{longlisting}
+\begin{minted}{python}
+import numpy as np
+import math
+from matplotlib import pyplot as plt
+
+# Creation de notre structure et discretisation
+def generation_structure(r_min, r_max, nnr, nntheta, oval, R, theta):
+    # Creation des matrices x et y
+    x = np.zeros((nntheta, nnr))
+    y = np.zeros((nntheta, nnr))
+    for j in range(0, nnr):
+        for i in range(0, nntheta):
+            x[i, j] = (R[j]+(oval/2.0))*math.cos(theta[i])
+            y[i, j] = (R[j]-(oval/2.0))*math.sin(theta[i])
+    return x, y
+
+# Generation du maillage triangulaire
+def maillage(x,y,nntheta,nnr,netheta,ner):
+    # Creation des matrices de coordonnees et de la table de connection
+    coord = np.zeros((nntheta*nnr, 2))
+    table = np.zeros((2*netheta*ner, 3), dtype='int')
+    # Creation des variables
+    Ne = 0
+    i = 0
+    j = 0
+
+    while j < nntheta-1:
+        i = 0
+        while i < nnr:
+            if 0 < i and (Ne+1) % 2 == 0:  # Triangle avec une base en haut
+                A1 = j*nnr+i
+                xA1 = x[j, i]
+                yA1 = y[j, i]
+                A2 = (j+1)*nnr+i
+                xA2 = x[j+1, i]
+                yA2 = y[j+1, i]
+                A3 = (j+1)*nnr+i-1
+                xA3 = x[j+1, i-1]
+                yA3 = y[j+1, i-1]
+                if i == nnr-1:   # On arrete d'avancer, pour faire le dernier triangle superieur
+                    i = i+1
+            elif 0 <= i < nnr:   # Triangle avec une base en bas
+                A1 = j*nnr+i
+                xA1 = x[j, i]
+                yA1 = y[j, i]
+                A2 = j*nnr+i+1
+                xA2 = x[j, i+1]
+                yA2 = y[j, i+1]
+                A3 = (j+1)*nnr+i
+                xA3 = x[j+1, i]
+                yA3 = y[j+1, i]
+                i = i+1    # Avancement le long des x
+
+            # Remplissage de la table de connectivite avec les noeuds de l'element
+            table[Ne, 0] = int(A1)
+            table[Ne, 1] = int(A2)
+            table[Ne, 2] = int(A3)
+
+            # Remplissage des coordonnees des points de l'element
+            coord[A1, 0] = xA1
+            coord[A1, 1] = yA1
+            coord[A2, 0] = xA2
+            coord[A2, 1] = yA2
+            coord[A3, 0] = xA3
+            coord[A3, 1] = yA3
+
+            # On passe aux nombres d'elements suivants
+            Ne = Ne+1
+
+        j = j+1
+    return coord, table
+
+# Affichage du maillage genere
+def affichage_maillage(coord, table, netheta, ner):
+    # On affiche l'element juste cree
+    plt.figure()
+    for k in range(0, 2*netheta*ner):
+        # On trace un trait entre chaque noeuds d'un element
+        plt.axis('equal')
+        plt.plot([coord[table[k, 0], 0], 
+        coord[table[k, 1], 0]], [coord[table[k, 0], 1], 
+        coord[table[k, 1], 1]], 'r')
+        plt.plot([coord[table[k, 2], 0], 
+        coord[table[k, 1], 0]], [coord[table[k, 2], 1], 
+        coord[table[k, 1], 1]], 'g')
+        plt.plot([coord[table[k, 0], 0], 
+        coord[table[k, 2], 0]], [coord[table[k, 0], 1], 
+        coord[table[k, 2], 1]], 'b')
+\end{minted}
+\caption{Génération du maillage éléments finis sous Python}
+\label{lst:PT_Mesh.py}
+\end{longlisting}
+
+\mint{python}|print("hello")| % Équivalent de \minted mais plus court
+
+\mintinline{python}|print("hello")|   % Quand t'as qu'une ligne de code
+
+\section{Les index}
+
+Quand ton texte contient un mot\index{mot} important\index{important}, tu peux l'indexer comme ça et il apparaîtra avec sa position dans l'index.
+
+\chapter{Séparation dans les listes}
+
+\section{Debug}
+
+Ce chapitre sert juste à vérifier que la séparation entre chapitre fonctionne bien dans les listes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.25\textwidth]{example-image-golden}
+    \caption{Image golden}
+    \label{fig:example-image-golden}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{subfigure}[t]{0.475\textwidth}
+        \includegraphics[width=1\textwidth]{example-grid-100x100pt}
+        \caption{Image grille}
+        \label{subfig:example-grid}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[t]{0.475\textwidth}
+        \includegraphics[width=1\textwidth]{example-grid-100x100pt}
+        \caption{Image grille}
+        \label{subfig:example-grid_bis}
+    \end{subfigure}
+    \caption{Example d'utilisation des sous-figures}
+    \label{fig:test_subfigure_bis}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|ll|r|}
+\hline
+\multicolumn{2}{|c|}{\textit{\textbf{Item}}}                                      & \textit{\textbf{}}           \\ \hline
+\multicolumn{1}{|l|}{\textit{\textbf{Animal}}}    & \textit{\textbf{Description}} & \textit{\textbf{Price (\$)}} \\ \hline
+\multicolumn{1}{|l|}{\textit{\textbf{Gnat}}}      & \textit{\textbf{per gram}}    & \textit{\textbf{13.65}}      \\ \hline
+\multicolumn{1}{|l|}{\textit{\textbf{}}}          & \textit{\textbf{each}}        & \textit{\textbf{0.01}}       \\ \hline
+\multicolumn{1}{|l|}{\textit{\textbf{Gnu}}}       & \textit{\textbf{stuffed}}     & \textit{\textbf{92.50}}      \\ \hline
+\multicolumn{1}{|l|}{\textit{\textbf{Emu}}}       & \textit{\textbf{stuffed}}     & \textit{\textbf{33.33}}      \\ \hline
+\multicolumn{1}{|l|}{\textit{\textbf{Armadillo}}} & \textit{\textbf{frozen}}      & \textit{\textbf{8.99}}       \\ \hline
+\end{tabular}
+\caption{Test de tableau}
+\label{tab:test_tableau}
+\end{table}
+
+\noteworthy{a+b+c=d}{Une équation très utile}
+
+\noteworthy{\Delta=b^2-4ac}{La formule utile à tout niveau}
+
+\begin{listing}[H]
+\begin{minted}{c++}
+    /*
+     * Once upon a time... In a galaxy far away from ou 24 hours block
+     */
+    
+    class Vampire {
+      constructor(props) {
+        this.location = props.location;
+        this.birthDate = props.birthDate;
+        this.deathDate = props.deathDate;
+        this.weaknesses = props.weaknesses;
+      }
+    
+      get age() {
+        return this.calcAge();
+      }
+    
+      calcAge() {
+        return this.deathDate - this.birthDate;
+      }
+    }
+    
+    // ...there was a guy named Vlad 666
+    
+    const Dracula = new Vampire({
+      location: 'Transylvania',
+      birthDate: 1428,
+      deathDate: 1476,
+      weaknesses: ['Sunlight', 'Garlic']
+    });
+\end{minted}
+\caption{Dracula sample.c}
+\label{lst:dracula.c}
+\end{listing}
+
+\begin{listing}[H]
+\begin{minted}{c++}
+    #include <stdio.h>
+    int main() {    
+
+    int number1, number2, sum;
+    number1 = 5;
+    
+    for(i=0,i<5,i++)
+    {
+        a=b+c+12.5;
+        d=1e-4;
+        g=124e6;
+        h=sqrt(cos(x));
+    }
+    
+    printf("Enter two integers: ");
+    scanf("%d %d", &number1, &number2);
+
+    // calculating sum
+    sum = number1 + number2;      
+    
+    printf("%d + %d = %d", number1, number2, sum);
+    return 0;
+\end{minted}
+\caption{sample.c}
+\label{lst:sample.c}
+\end{listing}
+
+Et un exemple\index{exemple} d'index pour la route !
+
+% ======================================== Fin Document ========================================
+
+% ======================================== Début Listes & Co ========================================
+
+\newpage
+\listoffigures
+
+\newpage
+\listoftables
+
+\newpage
+\listofmyequations
+
+\newpage
+\listoflistings
+
+\newpage
+\printindex
+
+\newpage
+\printbibliography[heading=bibintoc]
+
+% ======================================== Fin Listes & Co ========================================
+
+% ======================================== Début Annexes ========================================
+
+\begin{appendices}
+
+\chapter{Première annexe}
+
+\cite{CitekeyBook}
+
+\includepdf[pages=-,width=10cm]{example-image-a4}
+
+\end{appendices}
+
+% ======================================== Fin Annexes ========================================
+
+\end{document}
