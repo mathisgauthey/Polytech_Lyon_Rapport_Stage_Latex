@@ -53,7 +53,7 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 
 % ========== Graphique, police, maths ==========
 \usepackage[table,xcdraw]{xcolor}       % Package permettant d'utiliser de la couleur
-\usepackage{color}                      % Rajouter de la couleur au texte
+% \usepackage{color}                      % Rajouter de la couleur au texte
 \usepackage{bm}                         % Mettre en gras des maths avec la commande \bm
 \usepackage{ragged2e}                   % Meilleure gestion de l'alignement des textes entre autres
 \usepackage{tcolorbox}                  % Boite colorées pour texte, images ou équations
@@ -63,6 +63,7 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 \usepackage{cancel}                     % Barrer des maths
 \usepackage{mathtools}                  % Gestion des matrices et de maths complexes
 \usepackage{morewrites}                 % Résoud un problème entre les listes équation et codes
+\usepackage[color={[RGB]{255,191,191}}, text=Confidentiel, scale=3]{draftwatermark} % Ajout filigrane
 
 \usepackage{enumitem}       % Gestion des énumérations
 % Gestion des espaces avant et après les listes plus agréable à la vue
@@ -251,12 +252,12 @@ autogobble
 % \end{figure}
 
 % ========== Placement des images ==========
-% h	Place the float here, i.e., approximately at the same point it occurs in the source text (however, not exactly at the spot)
-% t	Position at the top of the page.
-% b	Position at the bottom of the page.
-% p	Put on a special page for floats only.
-% !	Override internal parameters LATEX uses for determining "good" float positions.
-% H	Places the float at precisely the location in the LATEX code. Requires the float package (\usepackage{float}). This is somewhat equivalent to h!, though some errors may arise if you have too many consecutive floats with [H].
+% h Place the float here, i.e., approximately at the same point it occurs in the source text (however, not exactly at the spot)
+% t Position at the top of the page.
+% b Position at the bottom of the page.
+% p Put on a special page for floats only.
+% ! Override internal parameters LATEX uses for determining "good" float positions.
+% H Places the float at precisely the location in the LATEX code. Requires the float package (\usepackage{float}). This is somewhat equivalent to h!, though some errors may arise if you have too many consecutive floats with [H].
 
 % ========== Intégrer un tableau ==========
 % https://www.tablesgenerator.com/
