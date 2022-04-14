@@ -13,5 +13,12 @@ Puis l'importer et l'utiliser sur votre éditeur LateX comme Overleaf en ligne o
 NB : Une version exploitable a également été upload sur Overleaf : https://fr.overleaf.com/latex/templates/polytech-lyon-rapport-stage-latex/xbjcfqjgfznt
 Elle n'est pas maintenue à jour contrairement à ce repo.
 
+# Configuration TexStudio
+- Dans **Compilation**, choisir le paramètre de compilation PDFLaTeX : ``pdflatex.exe -synctex=1 -interaction=nonstopmode -shell-escape %.tex``
+- Dans **Production**, choisir Biber en tant que moteur de bibliographie par défaut.
+- Bien penser à appuyer sur F9 pour mettre à jour le glossaire quand il est modifié avant de compiler.
+- Penser également à créer un user command "Make Nomenclature" : ``makeindex -s nomencl.ist -t %.nlg -o %.nls %.nlo`` (https://www.youtube.com/watch?v=kW97Yv0-QC4)
+- Compiler avec F5 pour compiler et visualiser. La compilation peut se lancer plusieurs fois pour prendre en compte la bibliographie, bien attendre qu'il soit indiqué : ``system returned with code 1 Processus terminé normalement``. Autrement, vérifier les logs et corriger les erreurs.
+
 # Licence
 Informations disponibles dans le fichier LICENSE ou en suivant ce lien : https://mathisgauthey.mit-license.org/
