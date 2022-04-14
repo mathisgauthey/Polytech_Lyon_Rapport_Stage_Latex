@@ -159,8 +159,12 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 
 % ========== Gestion des codes ==========
 \usepackage[newfloat]{minted}       % Package permettant d'intégrer du code
-\usemintedstyle{monokai}            % Sélection du style de syntaxe
-\definecolor{bg}{HTML}{282828}      % Définition de la couleur d'arrière plan monokai
+% Mode printer friendly
+\usemintedstyle{emacs}            	% Sélection du style de syntaxe
+\definecolor{bg}{HTML}{FFFFFF}      % Définition de la couleur d'arrière plan blanc
+% Mode pdf only
+%\usemintedstyle{monokai}            % Sélection du style de syntaxe
+%\definecolor{bg}{HTML}{282828}      % Définition de la couleur d'arrière plan monokai
 \counterwithin{listing}{section}    % Numérotation des codes à partir des sections
 
 % Configuration de newfloat pour que tout roule
