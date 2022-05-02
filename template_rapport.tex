@@ -78,6 +78,27 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 \DeclareSIUnit\bar{bar}                                 % Besoin de déclarer les bar car pas pris en charge
 \DeclareSIPower\quartic\tothefourth{4}
 
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+
+\newcommand{\myuline}[1]{%
+	\uline{\phantom{#1}}%
+	\llap{\contour{white}{#1}}%
+}
+
+% myuline on each word to allow linebreaks
+\RequirePackage{xparse}
+\ExplSyntaxOn
+\NewDocumentCommand{\myulineX}{m}
+{
+	\seq_set_split:Nnn \l_tmpa_seq { ~ } { #1 }
+	\seq_map_inline:Nn \l_tmpa_seq { \myuline{##1} ~ } \unskip
+}
+\ExplSyntaxOff
+
 % ========== Glossaire ==========
 \usepackage[acronym,toc]{glossaries}    % Gestion d'un glossaire et d'une liste d'acronymes,
                                         % et ajout dans la toc de la position de ces derniers
@@ -396,7 +417,7 @@ autogobble
 
 \section{Section}
 
-\blindtext
+\myulineX{Ceci est un test permettant de déterminer si oui ou non la capacité à souligner sans briser le linebreak est fonctionnelle. En effet, Latex de base ne permet pas de réaliser cette manœuvre, mais grâce aux commandes du préambule, le sous-lignage est adaptatif selon les lettres utilisées et de plus est utilisable sur de longues phrases.}
 
 \subsection{Subsection}
 
