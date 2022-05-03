@@ -1,4 +1,4 @@
-% ======================================== Début Préambule Latex ========================================   
+% ======================================== Début Préambule Latex ========================================
 % Copyright (c) 2022 Mathis Gauthey
 % This source code is licensed under the MIT License found in the
 % LICENSE file in the root directory of this source tree.
@@ -26,7 +26,7 @@
 \fancyhead[R]{\includegraphics[scale=0.15]{Logo_Polytech_Lyon.png}} % Logo droit
 % Redéfinir le style "empty" utilisé par le documentclass "report" pour le titre, résumé et chapitres
 \fancypagestyle{empty}
-{    
+{
     \fancyhf{}
     \fancyhead[L]{\includegraphics[scale=0.1]{Logo_Univ_Lyon_1.png}}    % Logo gauche
     \fancyhead[R]{\includegraphics[scale=0.15]{Logo_Polytech_Lyon.png}} % Logo droit
@@ -38,7 +38,7 @@
 \usepackage{hyperref}   % Liens dans le documents
 \usepackage{caption}    % Légendes dans les environnements "figure" et "float"
 \usepackage[list=true]{subcaption} % Légendes pour les "sous-figures" et "sous-float"
-                                   % et affichage des "sous-..." dans la liste des figures 
+                                   % et affichage des "sous-..." dans la liste des figures
 \def\thechapter{\Alph{chapter}}    % Définition des chapitres avec une lettre
 \setcounter{tocdepth}{3}           % Profondeur de numérotation de la toc  (chap > sec > subsec > subsubsec)
 \setcounter{secnumdepth}{3}        % Profondeur de numérotation des titres (chap > sec > subsec > subsubsec)
@@ -65,8 +65,9 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 \usepackage{cancel}                     % Barrer des maths
 \usepackage{mathtools}                  % Gestion des matrices et de maths complexes
 \usepackage{morewrites}                 % Résoud un problème entre les listes équation et codes
-\usepackage[color={[RGB]{255,191,191}}, text=Confidentiel, scale=3]{draftwatermark} % Ajout filigrane
+\usepackage[color={[RGB]{255,191,191}}, text=Confidentiel, scale=1]{draftwatermark} % Ajout filigrane
 
+\usepackage{lmodern}
 \usepackage[Lenny]{fncychap}
 
 \ChNameUpperCase
@@ -182,10 +183,10 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 
 % Création de la commande \noteworhty pour les équations importantes qui méritent d'être listées
 \newcommand{\noteworthy}[2]{
-\begin{align} \label{#2} \ensuremath{\boxed{#1}} \end{align} 
-\myequations{#2} 
+\begin{align} \label{#2} \ensuremath{\boxed{#1}} \end{align}
+\myequations{#2}
 \begingroup
-\centering \small \textit{#2} 
+\centering \small \textit{#2}
 
 \endgroup}
 
@@ -347,29 +348,30 @@ autogobble
 
 % ======================================== Début Page de Garde ========================================
 
+\hypersetup{pageanchor=false}
 \begin{titlepage}
     \begin{center}
         \vspace*{1cm}
-            
+
         \Huge
         \textbf{Titre}
-            
+
         \vspace{0.5cm}
         \LARGE
         Sous titre\\
         Année xxxx-yyyy\\
         Date
-            
+
         \vspace{1.5cm}
-            
+
         \textbf{Auteur}
-        
+
         \vfill
-            
+
         \includegraphics[scale=0.49]{Banniere_Meca.png}
-        
+
         \vfill
-            
+
         \Large
         \noindent\fbox{\begin{minipage}[c][0.3\textwidth]{\textwidth-7pt}%
         \begin{center}
@@ -395,20 +397,43 @@ autogobble
 
 % ======================================== Début Page Résumé ========================================
 
-\thispagestyle{plain}
+% French
+
+\thispagestyle{empty}
 \begin{center}
     \Large
     \textbf{Titre}
-        
+
     \vspace{0.4cm}
     \large
     Sous titre
-        
+
     \vspace{0.4cm}
     \textbf{Auteur}
-       
+
     \vspace{0.9cm}
     \textbf{Résumé}
+\end{center}
+
+\blindtext
+
+% English
+
+\newpage
+\thispagestyle{empty}
+\begin{center}
+	\Large
+	\textbf{Title}
+
+	\vspace{0.4cm}
+	\large
+	Subtitle
+
+	\vspace{0.4cm}
+	\textbf{Author}
+
+	\vspace{0.9cm}
+	\textbf{Abstract}
 \end{center}
 
 \blindtext
@@ -418,6 +443,8 @@ autogobble
 % ======================================== Début TOC & Co ========================================
 
 \newpage
+\hypersetup{pageanchor=true}
+\setcounter{page}{1}
 \tableofcontents
 
 \glsaddall  % Comme le \nocite{*} pour la bibliographie, importe toutes les entrées au moins une fois
@@ -512,10 +539,10 @@ Et si on joue avec les listes imbriquées :
 		\item Item
 		\item Item
 		\begin{itemize}
-			\item Item 
+			\item Item
 		\end{itemize}
 	\end{itemize}
-	\item Second 
+	\item Second
 	\item Third
 \end{itemize}
 
@@ -526,10 +553,10 @@ Et si on joue avec les énumérations imbriquées :
 		\item Item
 		\item Item
 		\begin{enumerate}
-			\item Item 
+			\item Item
 		\end{enumerate}
 	\end{enumerate}
-	\item Second 
+	\item Second
 	\item Third
 \end{enumerate}
 
@@ -591,15 +618,15 @@ On peut même les référencer : figure \ref{fig:example-image-a}
 
 \begin{table}[H]
 \centering
-\begin{tabular}{||c c c c||} 
+\begin{tabular}{||c c c c||}
  \hline
- Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+ Col1 & Col2 & Col2 & Col3 \\ [0.5ex]
  \hline\hline
- 1 & 6 & 87837 & 787 \\ 
+ 1 & 6 & 87837 & 787 \\
  2 & 7 & 78 & 5415 \\
  3 & 545 & 778 & 7507 \\
  4 & 545 & 18744 & 7560 \\
- 5 & 88 & 788 & 6344 \\ [1ex] 
+ 5 & 88 & 788 & 6344 \\ [1ex]
  \hline
 \end{tabular}
 \caption{Table to test captions and labels.}
@@ -761,14 +788,14 @@ def affichage_maillage(coord, table, netheta, ner):
     for k in range(0, 2*netheta*ner):
         # On trace un trait entre chaque noeuds d'un element
         plt.axis('equal')
-        plt.plot([coord[table[k, 0], 0], 
-        coord[table[k, 1], 0]], [coord[table[k, 0], 1], 
+        plt.plot([coord[table[k, 0], 0],
+        coord[table[k, 1], 0]], [coord[table[k, 0], 1],
         coord[table[k, 1], 1]], 'r')
-        plt.plot([coord[table[k, 2], 0], 
-        coord[table[k, 1], 0]], [coord[table[k, 2], 1], 
+        plt.plot([coord[table[k, 2], 0],
+        coord[table[k, 1], 0]], [coord[table[k, 2], 1],
         coord[table[k, 1], 1]], 'g')
-        plt.plot([coord[table[k, 0], 0], 
-        coord[table[k, 2], 0]], [coord[table[k, 0], 1], 
+        plt.plot([coord[table[k, 0], 0],
+        coord[table[k, 2], 0]], [coord[table[k, 0], 1],
         coord[table[k, 2], 1]], 'b')
 \end{minted}
 \caption{Génération du maillage éléments finis sous Python}
@@ -837,7 +864,7 @@ Ce chapitre sert juste à vérifier que la séparation entre chapitre fonctionne
     /*
      * Once upon a time... In a galaxy far away from ou 24 hours block
      */
-    
+
     class Vampire {
       constructor(props) {
         this.location = props.location;
@@ -845,18 +872,18 @@ Ce chapitre sert juste à vérifier que la séparation entre chapitre fonctionne
         this.deathDate = props.deathDate;
         this.weaknesses = props.weaknesses;
       }
-    
+
       get age() {
         return this.calcAge();
       }
-    
+
       calcAge() {
         return this.deathDate - this.birthDate;
       }
     }
-    
+
     // ...there was a guy named Vlad 666
-    
+
     const Dracula = new Vampire({
       location: 'Transylvania',
       birthDate: 1428,
@@ -871,11 +898,11 @@ Ce chapitre sert juste à vérifier que la séparation entre chapitre fonctionne
 \begin{listing}[H]
 \begin{minted}{c++}
     #include <stdio.h>
-    int main() {    
+    int main() {
 
     int number1, number2, sum;
     number1 = 5;
-    
+
     for(i=0,i<5,i++)
     {
         a=b+c+12.5;
@@ -883,13 +910,13 @@ Ce chapitre sert juste à vérifier que la séparation entre chapitre fonctionne
         g=124e6;
         h=sqrt(cos(x));
     }
-    
+
     printf("Enter two integers: ");
     scanf("%d %d", &number1, &number2);
 
     // calculating sum
-    sum = number1 + number2;      
-    
+    sum = number1 + number2;
+
     printf("%d + %d = %d", number1, number2, sum);
     return 0;
 \end{minted}
