@@ -67,6 +67,12 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 \usepackage{morewrites}                 % Résoud un problème entre les listes équation et codes
 \usepackage[color={[RGB]{255,191,191}}, text=Confidentiel, scale=3]{draftwatermark} % Ajout filigrane
 
+\usepackage[Lenny]{fncychap}
+
+\ChNameUpperCase
+\ChNumVar{\fontsize{40}{42}\usefont{OT1}{ptm}{m}{n}\selectfont}
+\ChTitleVar{\Huge \bfseries}
+
 \usepackage{pifont}
 \usepackage{enumitem}       % Gestion des énumérations
 % Gestion des espaces avant et après les listes plus agréable à la vue
@@ -425,7 +431,7 @@ autogobble
 % ======================================== Début Document ========================================
 
 \newpage
-\chapter{Chapitre}
+\chapter{Chapitre avec un titre extrêmement long, tellement long que personne n'utilisera jamais un titre pareil mais sait-on jamais}
 
 \section{Section}
 
