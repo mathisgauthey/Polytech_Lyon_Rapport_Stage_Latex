@@ -67,9 +67,20 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 \usepackage{morewrites}                 % Résoud un problème entre les listes équation et codes
 \usepackage[color={[RGB]{255,191,191}}, text=Confidentiel, scale=3]{draftwatermark} % Ajout filigrane
 
+\usepackage{pifont}
 \usepackage{enumitem}       % Gestion des énumérations
 % Gestion des espaces avant et après les listes plus agréable à la vue
-\setlist[itemize]{noitemsep, topsep=5pt, before={\vspace*{-\baselineskip}}}
+%\setlist[itemize]{noitemsep, topsep=5pt, before={\vspace*{-\baselineskip}}}
+
+\definecolor{bulletcolor}{RGB}{128,128,128}
+
+\setenumerate[1]{label=\Alph*.}
+\setenumerate[2]{label=\arabic*.}
+\setenumerate[3]{label=\roman*.}
+
+\setitemize[1]{label=\ding{222}, font=\LARGE \color{bulletcolor}}
+\setitemize[2]{label=\textbullet, font=\LARGE \color{bulletcolor}}
+\setitemize[3]{label=$\triangleright$, font=\LARGE \color{bulletcolor}}
 
 \usepackage{siunitx}                                    % Pour des unités bien écrites
 \newcommand{\nomunit}[1]{%
@@ -429,6 +440,101 @@ autogobble
 
 \chapter{Tuto pratique}
 
+\section{Les énumérations}
+
+Différence de distance avec le texte :
+
+\begin{itemize}
+	\item First
+	\item Second
+	\item Third
+\end{itemize}
+
+Différence de distance avec le texte quand le code est collé :
+\begin{itemize}
+	\item First
+	\item Second
+	\item Third
+\end{itemize}\bigskip	% Important pour permettre l'espacement optimal du texte avec les listes.
+
+Les énumérations :
+
+\begin{enumerate}
+	\item First
+	\item Second
+	\item Third
+\end{enumerate}
+
+Les énumérations collées :
+\begin{enumerate}
+	\item First
+	\item Second
+	\item Third
+\end{enumerate}
+
+\newpage
+
+Si maintenant on veut s'amuser avec des subitems :
+\begin{itemize}
+	\item Item 1
+	\subitem Subitem 1
+	\subitem Subitem 2
+	\item Item 2
+	\subitem Subitem 1
+	\subsubitem Subsubitem 1
+	\subitem Subitem 2
+	\item Item 3
+\end{itemize}
+
+Et avec les énumérations :
+\begin{enumerate}
+	\item Item 1
+	\subitem Subitem 1
+	\subitem Subitem 2
+	\item Item 2
+	\subitem Subitem 1
+	\subsubitem Subsubitem 1
+	\subitem Subitem 2
+	\item Item 3
+\end{enumerate}
+
+Et si on joue avec les listes imbriquées :
+\begin{itemize}
+	\item First
+	\begin{itemize}
+		\item Item
+		\item Item
+		\begin{itemize}
+			\item Item 
+		\end{itemize}
+	\end{itemize}
+	\item Second 
+	\item Third
+\end{itemize}
+
+Et si on joue avec les énumérations imbriquées :
+\begin{enumerate}
+	\item First
+	\begin{enumerate}
+		\item Item
+		\item Item
+		\begin{enumerate}
+			\item Item 
+		\end{enumerate}
+	\end{enumerate}
+	\item Second 
+	\item Third
+\end{enumerate}
+
+\newpage
+
+Les descriptions :
+\begin{description}
+	\item[CMS :] Un système de gestion de contenu ou SGC...
+	\item[Framework :] En programmation informatique, un framework....
+	\item[SGBD :] Un système de gestion de base de données...
+\end{description}
+
 \section{Les acronymes et les glossaires}
 
 C'est fou, on peut imprimer les entrées de glossaire de cette manière pour que sa position soit identifiée dans le glossaire : \gls{mot_complexe}
@@ -664,7 +770,7 @@ def affichage_maillage(coord, table, netheta, ner):
 
 \mint{python}|print("hello")| % Équivalent de \minted mais plus court
 
-\mintinline{python}|print("hello")|   % Quand t'as qu'une ligne de code
+On peut meme le faire sur une ligne : \mintinline{python}|print("hello")|   % Quand t'as qu'une ligne de code
 
 \section{Les index}
 
