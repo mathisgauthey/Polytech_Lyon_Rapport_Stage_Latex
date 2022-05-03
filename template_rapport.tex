@@ -253,6 +253,7 @@ autogobble
 \usepackage{pdfpages}                                   % Intégration de pdf dans le document
 \renewcommand{\appendixtocname}{Table des annexes}      % Nom de la table des annexes dans la toc
 \renewcommand{\appendixpagename}{Annexes}               % Nom du titre de la page des annexes
+\usepackage{titletoc}	% Permet de générer une petite table des annexes
 
 % ========== Utilitaires ==========
 \usepackage[all,defaultlines=3]{nowidow}    % Macro pour la gestion des lignes seules en bout de page
@@ -919,6 +920,10 @@ Et un exemple\index{exemple} d'index pour la route !
 % ======================================== Début Annexes ========================================
 
 \begin{appendices}
+
+\chapter*{Table des annexes}
+\startcontents[chapter]
+\printcontents[chapter]{l}{0}{\setcounter{tocdepth}{3}}
 
 \chapter{Première annexe}
 
