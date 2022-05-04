@@ -20,5 +20,8 @@ Elle n'est pas maintenue à jour contrairement à ce repo.
 - Penser également à créer un user command "Make Nomenclature" : ``makeindex -s nomencl.ist -t %.nlg -o %.nls %.nlo`` (https://www.youtube.com/watch?v=kW97Yv0-QC4)
 - Compiler avec F5 pour compiler et visualiser. La compilation peut se lancer plusieurs fois pour prendre en compte la bibliographie, bien attendre qu'il soit indiqué : ``system returned with code 1 Processus terminé normalement``. Autrement, vérifier les logs et corriger les erreurs.
 
+# Configuration Sublime Text 3
+Voir mon post sur tex.stackexchange : https://tex.stackexchange.com/questions/642957/how-can-i-compile-a-complexe-document-in-sublime-text-3-with-latextools-just-lik
+
 # Licence
 Informations disponibles dans le fichier LICENSE ou en suivant ce lien : https://mathisgauthey.mit-license.org/
