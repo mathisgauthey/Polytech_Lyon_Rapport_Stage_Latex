@@ -10,10 +10,11 @@ Télécharger l'archive ou cloner le repo :
 
 Puis l'importer et l'utiliser sur votre éditeur LateX (du plus user friendly au plus horrible à mettre en place) :
 - Overleaf
-- Texlive
 - Texstudio
 - VS Code
 - Sublime-Text-3
+
+<ins>Remarque :</ins> Je recommande ici d'installer TexLive. En effet, les logiciels Texstudio, VS Code et Sublime-Text-3 sont des éditeurs de texte, mais votre PC a besoin d'un compilateur LaTeX pour fonctionner.
 
 NB : Une version exploitable a également été upload sur Overleaf : https://fr.overleaf.com/latex/templates/polytech-lyon-rapport-stage-latex/xbjcfqjgfznt
 Elle n'est pas maintenue à jour contrairement à ce repo, mais il devrait déjà y avoir de quoi faire.
