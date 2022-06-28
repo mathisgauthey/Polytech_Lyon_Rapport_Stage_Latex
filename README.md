@@ -134,3 +134,5 @@ Je mets en open-source presque tous mes projets et j'essaie d'aider autant que p
 Cependant, si vous utilisez mes projets et les trouvez utiles, si vous voulez m'encourager à continuer à créer des choses, ou si vous croyez au même idéal que moi, il vous est possible de faire un don.
 
 Pour cela, tout se passe sur le bandeau à droite du projet :
+
+![brave_V0Zg0T3uRq](https://user-images.githubusercontent.com/46576952/176141742-02eb7c41-5111-48a0-a186-7da32d072141.png)
