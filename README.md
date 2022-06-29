@@ -1,5 +1,5 @@
 # Template_Rapport_Stage_Polytech_Latex
-Template de rapport de stage (ou autre) en LateX utilisable à Polytech Lyon ou dans n'importe quelle école du réseau Polytech sous réserve de changer les images.
+Template de rapport de stage (ou autre) en LaTeX utilisable à Polytech Lyon ou dans n'importe quelle école du réseau Polytech sous réserve de changer les images.
 Nom du PDF final demandé à Polytech Lyon en date de la promotion 2021-2022 :
 
 __AAAA_MM_5A_SPECIALITE_NOM_PRENOM__
@@ -56,7 +56,7 @@ Elle n'est pas maintenue à jour contrairement à ce repo, mais il devrait déj�
             "command": "makeindex",
             "args": [
                 "-s",
-                "%DOCFILE%.ist",
+                "nomencl.ist",
                 "-t",
                 "%DOCFILE%.nlg",
                 "-o",
@@ -112,7 +112,9 @@ And you'll then make these changes :
 
 - In builder setings, add a "script_commands" inside your OS with these lines :
 
-``"windows" : { // See README or third-party documentation "script_commands" : [ "pdflatex -synctex=1 -interaction=nonstopmode -shell-escape", "biber", "makeindex -s nomencl.ist -t $file_base_name.nlg -o $file_base_name.nls $file_base_name.nlo", "makeglossaries", "pdflatex -synctex=1 -interaction=nonstopmode -shell-escape", "pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" ] },``
+```
+"windows" : { // See README or third-party documentation "script_commands" : [ "pdflatex -synctex=1 -interaction=nonstopmode -shell-escape", "biber", "makeindex -s nomencl.ist -t $file_base_name.nlg -o $file_base_name.nls $file_base_name.nlo", "makeglossaries", "pdflatex -synctex=1 -interaction=nonstopmode -shell-escape", "pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" ] },
+```
 
 - Then add the option inside builder settings (not inside your OS there) : "options" : ["--shell-escape"],
 
