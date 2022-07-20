@@ -224,6 +224,7 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 
 \setminted          % Paramètre du code standard
 {
+breaklines,
 bgcolor=bg,
 frame=lines,
 framesep=2mm,
@@ -235,6 +236,7 @@ autogobble
 
 \setmintedinline    % Paramètres du code inline
 {
+breaklines,
 bgcolor=bg,
 frame=lines,
 framesep=2mm,
@@ -900,6 +902,9 @@ Ce chapitre sert juste à vérifier que la séparation entre chapitre fonctionne
 \begin{listing}[H]
 \begin{minted}{c++}
     #include <stdio.h>
+
+    // Ceci est un test de validation du linebreak automatique des codes à l'aide du package minted. Veuillez ne pas faire attention. Ou un petit peu mais pas trop.
+
     int main() {
 
     int number1, number2, sum;
