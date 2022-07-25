@@ -1,18 +1,34 @@
-% ======================================== Début Préambule Latex ========================================
+%*=============================================================================*
+%* LICENSE
+%*=============================================================================*
+
 % Copyright (c) 2022 Mathis Gauthey
 % This source code is licensed under the MIT License found in the
 % LICENSE file in the root directory of this source tree.
 
-% ========== Classe du document ==========
+%*=============================================================================*
+%* Début du préambule LaTeX
+%*=============================================================================*
+
+%*-----------------------------------------------------------------------------*
+%* Classe du document
+%*-----------------------------------------------------------------------------*
+
 \documentclass[a4paper,11pt]{report}    % A4, police taille 11, report pour avoir les chapitres
 
-% ========== Langue française pour le document ==========
+%*-----------------------------------------------------------------------------*
+%* Langue française pour le document
+%*-----------------------------------------------------------------------------*
+
 \usepackage{latexsym}       % Police latex de base
 \usepackage[french]{babel}  % Dictionnaire français (indentation, caractères spéciaux, tirets...)
 \usepackage[utf8]{inputenc} % Encodage d'entrée pour les caractères accentués
 \usepackage[T1]{fontenc}    % Affichage correct des caractères accentués notamment
 
-% ========== Géométrie du document ==========
+%*-----------------------------------------------------------------------------*
+%* Géométrie du document
+%*-----------------------------------------------------------------------------*
+
 % Gestion des différentes marges du document pour coller avec le séparateur d'en-tête
 \usepackage[left=2cm , right=2cm, bottom=2cm, top=2cm, headheight=2cm, headsep=0.5cm,heightrounded=true]{geometry}
 % \raggedbottom % This makes the last line of each page be at exactly the same place on the sheet of paper
@@ -32,7 +48,10 @@
     \fancyhead[R]{\includegraphics[scale=0.15]{Logo_Polytech_Lyon.png}} % Logo droit
 }
 
-% ========== Liens dans le document, méta-datas et références ==========
+%*-----------------------------------------------------------------------------*
+%* Liens dans le document, méta-datas et références bibliographiques
+%*-----------------------------------------------------------------------------*
+
 \usepackage{xpatch}     % Permet de patcher certaines fonctionnalités de base comme la toc
 \usepackage{float}      % Placement des flottants
 \usepackage{hyperref}   % Liens dans le documents
@@ -53,7 +72,10 @@ pdfauthor={Auteur},
 pdfkeywords={keyword1} {keyword2} {keyword3}
 }
 
-% ========== Graphique, police, maths ==========
+%*-----------------------------------------------------------------------------*
+%* Graphiques, police et maths
+%*-----------------------------------------------------------------------------*
+
 \usepackage[table,xcdraw]{xcolor}       % Package permettant d'utiliser de la couleur
 % \usepackage{color}                      % Rajouter de la couleur au texte
 \usepackage{bm}                         % Mettre en gras des maths avec la commande \bm
@@ -119,13 +141,19 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 }
 \ExplSyntaxOff
 
-% ========== Glossaire ==========
+%*-----------------------------------------------------------------------------*
+%* Glossaire
+%*-----------------------------------------------------------------------------*
+
 \usepackage[acronym,toc]{glossaries}    % Gestion d'un glossaire et d'une liste d'acronymes,
                                         % et ajout dans la toc de la position de ces derniers
 \input{glossary}                        % Récupère les informations du fichier glossary.tex
 \makeglossaries                         % Génère le glossaire avec les informations récupérées
 
-% ========== Nomenclature ==========
+%*-----------------------------------------------------------------------------*
+%* Nomenclature
+%*-----------------------------------------------------------------------------*
+
 \usepackage[intoc]{nomencl}         % Gestion d'une nomenclature avec position dans la toc
 \makenomenclature                   % Génère la nomenclature
 \usepackage{etoolbox}               % Permet de créer des groupes de nomenclature
@@ -146,7 +174,10 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 \nomenclature[C]{$\dot{\epsilon}$}{Vitesse de déformation \nomunit{\si{\per\second}}}
 }
 
-% ========== Gestion des figures ==========
+%*-----------------------------------------------------------------------------*
+%* Gestion des figures
+%*-----------------------------------------------------------------------------*
+
 \usepackage{graphicx}               % Plus d'arguments pour la fonction \includegraphics
 \graphicspath{{Images/}}            % Path des images
 
@@ -158,7 +189,10 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 % Ajout de la position de la liste des figures dans la toc
 \xpretocmd{\listoffigures}{\addcontentsline{toc}{chapter}{\listfigurename}}{}{}
 
-% ========== Gestion des tableaux ==========
+%*-----------------------------------------------------------------------------*
+%* Gestion des tableaux
+%*-----------------------------------------------------------------------------*
+
 \usepackage{array,multirow,makecell}                        % Packages utiles pour les tableaux
 \setcellgapes{1pt}                                          % Paramètres sympa d'après Xm1Math
 \makegapedcells                                             % Paramètres sympa d'après Xm1Math
@@ -173,7 +207,10 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 % Ajout de la position de la liste des tableaux dans la toc
 \xpretocmd{\listoftables}{\addcontentsline{toc}{chapter}{\listtablename}}{}{}
 
-% ========== Gestion des équations ==========
+%*-----------------------------------------------------------------------------*
+%* Gestion des équations
+%*-----------------------------------------------------------------------------*
+
 \newcommand{\listequationsname}{Liste des équations}    % Renommer la liste des équations
 \newlistof{myequations}{equ}{\listequationsname}
 \newcommand{\myequations}[1]{%
@@ -198,7 +235,10 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 % Ajout de la position de la liste des équation dans la toc
 \xpretocmd{\listofmyequations}{\addcontentsline{toc}{chapter}{\listequationsname}}{}{}
 
-% ========== Gestion des codes ==========
+%*-----------------------------------------------------------------------------*
+%* Gestion des codes
+%*-----------------------------------------------------------------------------*
+
 \usepackage[newfloat]{minted}       % Package permettant d'intégrer du code
 % Mode printer friendly
 \usemintedstyle{emacs}            	% Sélection du style de syntaxe
@@ -246,111 +286,56 @@ linenos=true,
 autogobble
 }
 
-% ========== Index ==========
+%*-----------------------------------------------------------------------------*
+%* Index
+%*-----------------------------------------------------------------------------*
+
 \usepackage{imakeidx}   % Package pour créer l'index
 \makeindex              % Génération de l'index
 % Ajout de la position de l'index dans la toc
 \xpretocmd{\printindex}{\addcontentsline{toc}{chapter}{\indexname}}{}{}
 
-% ========== Bibliographie ==========
+%*-----------------------------------------------------------------------------*
+%* Bibliographie
+%*-----------------------------------------------------------------------------*
+
 % Importer un fichier biblatex, sans dépassement des marges, trié par ordre d'apparition
 \usepackage[block=ragged,sorting=none]{biblatex}
 \usepackage{csquotes}           % Gestion des caractères " " lors des citations
 \addbibresource{biblio.bib}     % Importer le fichier de bibliographie
 \nocite{*}                      % Importer les éléments non cités quand même dans la bibliographie
 
-% ========== Gestion des annexes ==========
+%*-----------------------------------------------------------------------------*
+%* Gestion des annexes
+%*-----------------------------------------------------------------------------*
+
 \usepackage[toc,page,title,titletoc,header]{appendix}   % Packages indexes importants
 \usepackage{pdfpages}                                   % Intégration de pdf dans le document
 \renewcommand{\appendixtocname}{Table des annexes}      % Nom de la table des annexes dans la toc
 \renewcommand{\appendixpagename}{Annexes}               % Nom du titre de la page des annexes
 \usepackage{titletoc}	% Permet de générer une petite table des annexes
 
-% ========== Utilitaires ==========
+%*-----------------------------------------------------------------------------*
+%* Utilitaires
+%*-----------------------------------------------------------------------------*
+
 \usepackage[all,defaultlines=3]{nowidow}    % Macro pour la gestion des lignes seules en bout de page
 \usepackage{blindtext}                      % Génération de texte aléatoire pour les exemples
 % A utiliser avec https://ctan.mirror.garr.it/mirrors/ctan/macros/latex/contrib/mwe/mwe.pdf pour les images
 
-% ======================================== Fin Préambule Latex ========================================
+%*=============================================================================*
+%* Fin du préambule LaTeX
+%*=============================================================================*
 
-% ======================================== Début TUTOs ========================================
-
-% ========== Intégrer une image ==========
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics[width=\textwidth]{example-image-a.png}
-%\caption{Image A}
-%\label{fig:example-image-a} % Bon réflexe de garder le même nom de fichier et de label
-%\end{figure}
-
-% ========== Insérer de multiples images ==========
-% \begin{figure}[H]
-%     \begin{subfigure}[t]{0.475\textwidth}
-%         \includegraphics[width=1\textwidth]{example-image-b}
-%         \caption{Image B}
-%         \label{subfig:example-image-b}
-%     \end{subfigure}%
-%     ATTENTION, le % est très important ici pour éviter les problèmes de vide
-%     \hfill    % Remplissage entre les images
-%     \begin{subfigure}[t]{0.475\textwidth}
-%         \includegraphics[width=1\textwidth]{example_image_c}
-%         \caption{Image C}
-%         \label{subfig:example-image-c}
-%     \end{subfigure}
-%     \caption{Exemple d'utilisation des sous-figures}
-%     \label{fig:test_subfigure}
-% \end{figure}
-
-% ========== Placement des images ==========
-% h Place the float here, i.e., approximately at the same point it occurs in the source text (however, not exactly at the spot)
-% t Position at the top of the page.
-% b Position at the bottom of the page.
-% p Put on a special page for floats only.
-% ! Override internal parameters LATEX uses for determining "good" float positions.
-% H Places the float at precisely the location in the LATEX code. Requires the float package (\usepackage{float}). This is somewhat equivalent to h!, though some errors may arise if you have too many consecutive floats with [H].
-
-% ========== Intégrer un tableau ==========
-% https://www.tablesgenerator.com/
-
-% ========== Intégrer une équation ==========
-% https://editor.codecogs.com/
-% \noteworthy{equation}{légende} pour l'avoir dans la liste des équations
-
-% ========== Intégrer du code ==========
-% \begin{listing}[htbp]
-% \begin{minted}{c}
-% #include <stdio.h>
-% int main() {
-%   printf("Hello, World!"); /*printf() outputs the quoted string*/
-%   return 0;
-% }
-% \end{minted}
-% \caption{Hello World in C}
-% \label{listing:2}
-% \end{listing}
-
-% \mint{python}|print("hello")| % Équivalent de \minted mais plus court
-
-% \mintinline{python}|print("hello")|   % Quand t'as qu'une ligne de code
-
-% Remarque : Le séparateur aurait pu être { } ou d'autres ponctuations
-
-% \inputminted[firstline=2, lastline=12]{octave}{BitXorMatrix.m}
-
-% ========== Début de doc classique ==========
-% \title{Titre}
-% \author{Auteur}
-% \date{\today}
-% \maketitle
-% \begin{abstract}
-%     Blablabla
-% \end{abstract}
-
-% ======================================== Fin TUTOs ========================================
+%*=============================================================================*
+%* Début du document LaTeX
+%*=============================================================================*
 
 \begin{document}
 
-% ======================================== Début Page de Garde ========================================
+%*-----------------------------------------------------------------------------*
+%* Début de la page de garde
+%*-----------------------------------------------------------------------------*
 
 \hypersetup{pageanchor=false}
 \begin{titlepage}
@@ -397,9 +382,13 @@ autogobble
     \end{center}
 \end{titlepage}
 
-% ======================================== Fin Page de Garde ========================================
+%*-----------------------------------------------------------------------------*
+%* Fin de la page de garde
+%*-----------------------------------------------------------------------------*
 
-% ======================================== Début Page Résumé ========================================
+%*-----------------------------------------------------------------------------*
+%* Début du résumé
+%*-----------------------------------------------------------------------------*
 
 % French
 
@@ -442,9 +431,13 @@ autogobble
 
 \blindtext
 
-% ======================================== Fin Page Résumé ========================================
+%*-----------------------------------------------------------------------------*
+%* Fin du résumé
+%*-----------------------------------------------------------------------------*
 
-% ======================================== Début TOC & Co ========================================
+%*-----------------------------------------------------------------------------*
+%* Début TOC & Co
+%*-----------------------------------------------------------------------------*
 
 \newpage
 \hypersetup{pageanchor=true}
@@ -457,9 +450,13 @@ autogobble
 \newpage
 \printnomenclature
 
-% ======================================== Fin TOC & Co ========================================
+%*-----------------------------------------------------------------------------*
+%* Fin TOC & Co
+%*-----------------------------------------------------------------------------*
 
-% ======================================== Début Document ========================================
+%*-----------------------------------------------------------------------------*
+%* Début du corps du document
+%*-----------------------------------------------------------------------------*
 
 \newpage
 \chapter{Chapitre avec un titre extrêmement long, tellement long que personne n'utilisera jamais un titre pareil mais sait-on jamais}
@@ -933,9 +930,13 @@ Ce chapitre sert juste à vérifier que la séparation entre chapitre fonctionne
 
 Et un exemple\index{exemple} d'index pour la route !
 
-% ======================================== Fin Document ========================================
+%*-----------------------------------------------------------------------------*
+%* Fin du corps du document
+%*-----------------------------------------------------------------------------*
 
-% ======================================== Début Listes & Co ========================================
+%*-----------------------------------------------------------------------------*
+%* Début listes & Co
+%*-----------------------------------------------------------------------------*
 
 \newpage
 \listoffigures
@@ -955,9 +956,13 @@ Et un exemple\index{exemple} d'index pour la route !
 \newpage
 \printbibliography[heading=bibintoc]
 
-% ======================================== Fin Listes & Co ========================================
+%*-----------------------------------------------------------------------------*
+%* Fin listes & Co
+%*-----------------------------------------------------------------------------*
 
-% ======================================== Début Annexes ========================================
+%*-----------------------------------------------------------------------------*
+%* Début des annexes
+%*-----------------------------------------------------------------------------*
 
 \begin{appendices}
 
@@ -973,6 +978,12 @@ Et un exemple\index{exemple} d'index pour la route !
 
 \end{appendices}
 
-% ======================================== Fin Annexes ========================================
+%*-----------------------------------------------------------------------------*
+%* Fin des annexes
+%*-----------------------------------------------------------------------------*
 
 \end{document}
+
+%*=============================================================================*
+%* Fin du document LaTeX
+%*=============================================================================*
