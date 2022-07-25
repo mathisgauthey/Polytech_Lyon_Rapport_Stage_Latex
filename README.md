@@ -1,4 +1,15 @@
-# Template_Rapport_Stage_Polytech_Latex
+# Table des matières
+
+- [Table des matières](#table-des-matières)
+- [Comment utiliser ce template ?](#comment-utiliser-ce-template-)
+- [Configuration TexStudio](#configuration-texstudio)
+- [Configuration VS Code](#configuration-vs-code)
+- [Configuration Sublime Text 3](#configuration-sublime-text-3)
+- [Apprendre à utiliser LaTeX](#apprendre-à-utiliser-latex)
+- [Licence](#licence)
+- [Donations](#donations)
+
+# Comment utiliser ce template ?
 Template de rapport de stage (ou autre) en LaTeX utilisable à Polytech Lyon ou dans n'importe quelle école du réseau Polytech sous réserve de changer les images.
 Nom du PDF final demandé à Polytech Lyon en date de la promotion 2021-2022 :
 
@@ -8,7 +19,7 @@ Comment l'utiliser ?
 Télécharger l'archive ou cloner le repo :
 ![image](https://user-images.githubusercontent.com/46576952/156882294-df1c6cbe-b5b8-4b1f-958f-65d4c2228846.png)
 
-Puis l'importer et l'utiliser sur votre éditeur LateX (du plus user friendly au plus horrible à mettre en place) :
+Puis l'importer et l'utiliser sur votre éditeur LateX (du plus user friendly au plus ~~horrible~~ complexe à mettre en place) :
 - Overleaf
 - Texstudio
 - VS Code
@@ -16,7 +27,7 @@ Puis l'importer et l'utiliser sur votre éditeur LateX (du plus user friendly au
 
 <ins>Remarque :</ins> Je recommande ici d'installer TexLive. En effet, les logiciels Texstudio, VS Code et Sublime-Text-3 sont des éditeurs de texte, mais votre PC a besoin d'un compilateur LaTeX pour fonctionner.
 
-NB : Une version exploitable a également été upload sur Overleaf : https://fr.overleaf.com/latex/templates/polytech-lyon-rapport-stage-latex/xbjcfqjgfznt
+> NB : Une version exploitable a également été upload sur Overleaf : https://fr.overleaf.com/latex/templates/polytech-lyon-rapport-stage-latex/xbjcfqjgfznt \
 Elle n'est pas maintenue à jour contrairement à ce repo, mais il devrait déjà y avoir de quoi faire.
 
 # Configuration TexStudio
@@ -125,6 +136,12 @@ If you want then to have a simpler and faster compilation system, select the "ba
 More informations available here : https://latextools.readthedocs.io/en/latest/install/
 
 Voir mon post sur tex.stackexchange pour plus d'informations : https://tex.stackexchange.com/questions/642957/how-can-i-compile-a-complexe-document-in-sublime-text-3-with-latextools-just-lik
+
+# Apprendre à utiliser LaTeX
+
+Pour apprendre à utiliser LaTeX, ce document fournis plusieurs exemples d'intégrations d'éléments pour la rédaction de documents scientifiques (figures, tableaux, équations, références, etc.).
+
+Vous pouvez également consulter le fichier [latex_tutorial](latex_tutorial.md) pour plus d'informations.
 
 # Licence
 Informations disponibles dans le fichier LICENSE ou en suivant ce lien : https://mathisgauthey.mit-license.org/
