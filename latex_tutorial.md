@@ -61,14 +61,14 @@
 
 # Insérer des tableaux
 
-- https://www.tablesgenerator.com/ : Pour un tableau non évolutif et une interface sympathique.
-- https://www.latex-tables.com/ : Pour pouvoir les rééditer facilement.
+- <https://www.tablesgenerator.com/> : Pour un tableau non évolutif et une interface sympathique.
+- <https://www.latex-tables.com/> : Pour pouvoir les rééditer facilement.
 
 # Intégrer des équations
 
 ## Créer des équations en ligne
 
-- https://latex.codecogs.com/eqneditor/editor.php : Pour créer des équations en ligne.
+- <https://latex.codecogs.com/eqneditor/editor.php> : Pour créer des équations en ligne.
 
 ## Intégrer une équation à la liste des équations
 
