@@ -182,7 +182,7 @@ Thanks a lot, and make sure to have fun in life o/
 
 ## Where to Make a Donation ?
 
-- ![github_sponsor_logo|25x25](https://user-images.githubusercontent.com/46576952/183624992-54add762-c94a-49f0-a1ae-5f6ab6029b60.png) : [Sponsor @mathisgauthey on GitHub Sponsors](https://github.com/sponsors/mathisgauthey?frequency=recurring&sponsor=mathisgauthey)
+- <img src="[https://your-image-url.type](https://user-images.githubusercontent.com/46576952/183624992-54add762-c94a-49f0-a1ae-5f6ab6029b60.png)" width="25" height="25"> : [Sponsor @mathisgauthey on GitHub Sponsors](https://github.com/sponsors/mathisgauthey?frequency=recurring&sponsor=mathisgauthey)
 - ![kofi_logo|25x25](https://user-images.githubusercontent.com/46576952/183625042-564ff213-54a0-471c-aef4-e327be148c60.png) : [ko-fi.com/mathisgauthe](https://ko-fi.com/mathisgauthey)
 - ![buymeacoffe_logo|25x25](https://user-images.githubusercontent.com/46576952/183625068-269229e4-0e11-429a-8f72-20a21657c7e1.png) : [buymeacoffee.com/mathisgauthey](https://www.buymeacoffee.com/mathisgauthey)
 - ![paypal_logo|25x25](https://user-images.githubusercontent.com/46576952/183625101-1587f395-647a-44bc-b93f-d957eb3bbe43.png) : [paypal.me/mathisgauthey](https://paypal.me/mathisgauthey?country.x=FR&locale.x=fr_FR)
