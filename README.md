@@ -4,6 +4,8 @@
 - [Comment utiliser ce template ?](#comment-utiliser-ce-template-)
 - [Configuration TexStudio](#configuration-texstudio)
 - [Configuration VS Code](#configuration-vs-code)
+  - [Utiliser mon fichier settings](#utiliser-mon-fichier-settings)
+  - [Réaliser soi-même le paramétrage de l'extension Latex Wrokshop](#réaliser-soi-même-le-paramétrage-de-lextension-latex-wrokshop)
 - [Configuration Sublime Text 3](#configuration-sublime-text-3)
 - [Apprendre à utiliser LaTeX](#apprendre-à-utiliser-latex)
 - [Licence](#licence)
@@ -38,6 +40,13 @@ Elle n'est pas maintenue à jour contrairement à ce repo, mais il devrait déj�
 - Compiler avec F5 pour compiler et visualiser. La compilation peut se lancer plusieurs fois pour prendre en compte la bibliographie, bien attendre qu'il soit indiqué : ``system returned with code 1 Processus terminé normalement``. Autrement, vérifier les logs et corriger les erreurs.
 
 # Configuration VS Code
+
+## Utiliser mon fichier settings
+
+Aller dans `C:\Users\*USER_NAME*\AppData\Roaming\Code\User` et coller le fichier [settings.json](settings.json). That's it, Latex Workshop est paramétré correctement.
+
+## Réaliser soi-même le paramétrage de l'extension Latex Wrokshop
+
 - Installer l'extension **Latex Workshop** (https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 - Trouvez le paramètre "latex-workshop.latex.tools" dans les paramètres de l'extension.
 - Ajoutez les latextools suivant :
