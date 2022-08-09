@@ -1,17 +1,17 @@
 # Table des matières
 
-- [Table des matières](#table-des-matières)
-- [Comment utiliser ce template ?](#comment-utiliser-ce-template-)
-- [Configuration TexStudio](#configuration-texstudio)
-- [Configuration VS Code](#configuration-vs-code)
-  - [Utiliser mon fichier settings](#utiliser-mon-fichier-settings)
-  - [Réaliser soi-même le paramétrage de l'extension Latex Wrokshop](#réaliser-soi-même-le-paramétrage-de-lextension-latex-wrokshop)
-- [Configuration Sublime Text 3](#configuration-sublime-text-3)
-- [Apprendre à utiliser LaTeX](#apprendre-à-utiliser-latex)
-- [Licence du code](#licence-du-code)
-- [Donations](#donations)
-  - [Pourquoi donner ?](#pourquoi-donner-)
-  - [Où effectuer un don ?](#où-effectuer-un-don-)
+1. [Table des matières](#table-des-matières)
+2. [Comment utiliser ce template ?](#comment-utiliser-ce-template-)
+3. [Configuration TexStudio](#configuration-texstudio)
+4. [Configuration VS Code](#configuration-vs-code)
+   1. [Utiliser mon fichier settings](#utiliser-mon-fichier-settings)
+   2. [Réaliser soi-même le paramétrage de l'extension Latex Wrokshop](#réaliser-soi-même-le-paramétrage-de-lextension-latex-wrokshop)
+5. [Configuration Sublime Text 3](#configuration-sublime-text-3)
+6. [Apprendre à utiliser LaTeX](#apprendre-à-utiliser-latex)
+7. [Licence du code](#licence-du-code)
+8. [Donations](#donations)
+   1. [Pourquoi donner ?](#pourquoi-donner-)
+   2. [Où effectuer un don ?](#où-effectuer-un-don-)
 
 # Comment utiliser ce template ?
 
