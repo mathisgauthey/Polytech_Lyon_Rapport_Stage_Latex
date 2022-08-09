@@ -188,7 +188,7 @@ Merci beaucoup, et assurez-vous de vous amuser dans la vie o/
 ### Où effectuer un don ?
 
 - <img src="https://user-images.githubusercontent.com/46576952/183624992-54add762-c94a-49f0-a1ae-5f6ab6029b60.png" width="25" height="25"> : [Sponsor @mathisgauthey on GitHub Sponsors](https://github.com/sponsors/mathisgauthey?frequency=recurring&sponsor=mathisgauthey)
+- <img src="https://user-images.githubusercontent.com/46576952/183625042-564ff213-54a0-471c-aef4-e327be148c60.png" width="25" height="25"> : [ko-fi.com/mathisgauthey](https://ko-fi.com/mathisgauthey)
 - <img src="https://user-images.githubusercontent.com/46576952/183625101-1587f395-647a-44bc-b93f-d957eb3bbe43.png" width="25" height="25"> : [Donate to mathisgauthey](https://www.paypal.com/donate/?hosted_button_id=7Z9AFY6SXMCJ2)
 - <img src="https://user-images.githubusercontent.com/46576952/183625101-1587f395-647a-44bc-b93f-d957eb3bbe43.png" width="25" height="25"> : [paypal.me/mathisgauthey](https://paypal.me/mathisgauthey?country.x=FR&locale.x=fr_FR)
-- <img src="https://user-images.githubusercontent.com/46576952/183625042-564ff213-54a0-471c-aef4-e327be148c60.png" width="25" height="25"> : [ko-fi.com/mathisgauthey](https://ko-fi.com/mathisgauthey)
 - <img src="https://user-images.githubusercontent.com/46576952/183625068-269229e4-0e11-429a-8f72-20a21657c7e1.png" width="25" height="25"> : [buymeacoffee.com/mathisgauthey](https://www.buymeacoffee.com/mathisgauthey)
