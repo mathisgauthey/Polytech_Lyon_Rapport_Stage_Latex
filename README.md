@@ -8,8 +8,10 @@
   - [Réaliser soi-même le paramétrage de l'extension Latex Wrokshop](#réaliser-soi-même-le-paramétrage-de-lextension-latex-wrokshop)
 - [Configuration Sublime Text 3](#configuration-sublime-text-3)
 - [Apprendre à utiliser LaTeX](#apprendre-à-utiliser-latex)
-- [Licence](#licence)
+- [License Informations](#license-informations)
 - [Donations](#donations)
+  - [Why Donate ?](#why-donate-)
+  - [Where to Make a Donation ?](#where-to-make-a-donation-)
 
 # Comment utiliser ce template ?
 
@@ -161,18 +163,27 @@ Pour apprendre à utiliser LaTeX, ce document fournis plusieurs exemples d'inté
 
 Vous pouvez également consulter le fichier [latex_tutorial](latex_tutorial.md) pour plus d'informations.
 
-# Licence
+# License Informations
 
-Informations disponibles dans le fichier LICENSE ou en suivant ce lien : <https://mathisgauthey.mit-license.org/>
+Ce code est sous licence [MIT](https://choosealicense.com/licenses/mit/).
+Des informations sur la licence de ce code peuvent être trouvées dans le fichier [__LICENSE__](LICENSE) ou en suivant ce lien : [MIT License - Mathis Gauthey](https://mathisgauthey.mit-license.org/).
 
 # Donations
 
-Je crois en un monde où chaque logiciel dispose d'une alternative open-source maintenue par un groupe de personnes formidables pour améliorer la vie de chacun, et non par une entreprise ne cherchant que le profit avec des marges élevées.
+## Why Donate ?
 
-Je mets en open-source presque tous mes projets et j'essaie d'aider autant que possible les personnes qui ont besoin d'aide pour utiliser ces projets. Bien sûr, tout cela prend du temps, du temps que je suis prêt à consacrer pour que vous puissiez utiliser tout cela gratuitement.
+I believe in a world where every software has an open-source alternative maintained by a group of great people to improve everyone's life, and not a company seeking only profits with high margins.
 
-Cependant, si vous utilisez mes projets et les trouvez utiles, si vous voulez m'encourager à continuer à créer des choses, ou si vous croyez au même idéal que moi, il vous est possible de faire un don.
+That's why I open-source almost all my projects and try to help as much as possible the people who need help using these projects. Of course, all of this takes time, time that I'm willing to spend so that you can use all of this for free.
 
-Pour cela, tout se passe sur le bandeau à droite du projet :
+However, if you use my projects and find them useful, if you want to encourage me to continue creating stuff, or if you believe in the same ideal as I do, it is possible for you to make a donation to keep the machine running.
 
-![brave_V0Zg0T3uRq](https://user-images.githubusercontent.com/46576952/176141742-02eb7c41-5111-48a0-a186-7da32d072141.png)
+Thanks a lot, and make sure to have fun in life o/
+
+## Where to Make a Donation ?
+
+- ![[github_sponsor_logo.png|25x25]] : [Sponsor @mathisgauthey on GitHub Sponsors](https://github.com/sponsors/mathisgauthey?frequency=recurring&sponsor=mathisgauthey)
+- ![[kofi_logo.png|25x25]] : [ko-fi.com/mathisgauthe](https://ko-fi.com/mathisgauthey)
+- ![[buymeacoffe_logo.png|25x25]] : [buymeacoffee.com/mathisgauthey](https://www.buymeacoffee.com/mathisgauthey)
+- ![[paypal_logo.png|25x25]] : [paypal.me/mathisgauthey](https://paypal.me/mathisgauthey?country.x=FR&locale.x=fr_FR)
+- ![[paypal_logo.png|25x25]] : [Paypal Donate to mathisgauthey](https://www.paypal.com/donate/?hosted_button_id=7Z9AFY6SXMCJ2)
