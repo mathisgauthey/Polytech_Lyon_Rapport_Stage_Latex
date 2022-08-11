@@ -166,7 +166,7 @@ Voir mon post sur tex.stackexchange pour plus d'informations : <https://tex.stac
 
 Pour apprendre à utiliser LaTeX, ce document fournis plusieurs exemples d'intégrations d'éléments pour la rédaction de documents scientifiques (figures, tableaux, équations, références, etc.).
 
-Vous pouvez également consulter le fichier [latex_tutorial](latex_tutorial.md) pour plus d'informations.
+Vous pouvez également consulter le fichier [LaTeX_Guide](LaTeX_Guide.md) pour plus d'informations.
 
 ## Licence du code
 
