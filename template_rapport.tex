@@ -86,7 +86,7 @@ pdfkeywords={keyword1} {keyword2} {keyword3}
 \usepackage{amsmath,amsfonts,amssymb}   % Écrire des maths
 \usepackage{cancel}                     % Barrer des maths
 \usepackage{mathtools}                  % Gestion des matrices et de maths complexes
-\usepackage{morewrites}                 % Résoud un problème entre les listes équation et codes
+\usepackage{morewrites}                 % Résout un problème entre les listes équation et codes
 \usepackage[color={[RGB]{255,191,191}}, text=Confidentiel, scale=1]{draftwatermark} % Ajout filigrane
 
 \usepackage{lmodern}
@@ -749,7 +749,7 @@ def generation_structure(r_min, r_max, nnr, nntheta, oval, R, theta):
 
 # Generation du maillage triangulaire
 def maillage(x,y,nntheta,nnr,netheta,ner):
-    # Creation des matrices de coordonnees et de la table de connection
+    # Creation des matrices de coordonnées et de la table de connection
     coord = np.zeros((nntheta*nnr, 2))
     table = np.zeros((2*netheta*ner, 3), dtype='int')
     # Creation des variables
@@ -770,7 +770,7 @@ def maillage(x,y,nntheta,nnr,netheta,ner):
                 A3 = (j+1)*nnr+i-1
                 xA3 = x[j+1, i-1]
                 yA3 = y[j+1, i-1]
-                if i == nnr-1:   # On arrete d'avancer, pour faire le dernier triangle superieur
+                if i == nnr-1:   # On arrête d'avancer, pour faire le dernier triangle supérieur
                     i = i+1
             elif 0 <= i < nnr:   # Triangle avec une base en bas
                 A1 = j*nnr+i
@@ -784,12 +784,12 @@ def maillage(x,y,nntheta,nnr,netheta,ner):
                 yA3 = y[j+1, i]
                 i = i+1    # Avancement le long des x
 
-            # Remplissage de la table de connectivite avec les noeuds de l'element
+            # Remplissage de la table de connectivité avec les noeuds de l'element
             table[Ne, 0] = int(A1)
             table[Ne, 1] = int(A2)
             table[Ne, 2] = int(A3)
 
-            # Remplissage des coordonnees des points de l'element
+            # Remplissage des coordonnées des points de l'element
             coord[A1, 0] = xA1
             coord[A1, 1] = yA1
             coord[A2, 0] = xA2
@@ -803,9 +803,9 @@ def maillage(x,y,nntheta,nnr,netheta,ner):
         j = j+1
     return coord, table
 
-# Affichage du maillage genere
+# Affichage du maillage généré
 def affichage_maillage(coord, table, netheta, ner):
-    # On affiche l'element juste cree
+    # On affiche l'element juste créé
     plt.figure()
     for k in range(0, 2*netheta*ner):
         # On trace un trait entre chaque noeuds d'un element
