@@ -13,9 +13,6 @@
       3. [Configuration Sublime Text 3](#configuration-sublime-text-3)
    4. [Apprendre à utiliser LaTeX](#apprendre-à-utiliser-latex)
    5. [Licence du code](#licence-du-code)
-   6. [Donations](#donations)
-      1. [Pourquoi donner ?](#pourquoi-donner-)
-      2. [Où effectuer un don ?](#où-effectuer-un-don-)
 
 ## Comment utiliser ce template ?
 
